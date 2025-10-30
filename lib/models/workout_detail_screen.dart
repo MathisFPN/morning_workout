@@ -19,7 +19,7 @@ class _WorkoutDetailScreenState extends State<WorkoutDetailScreen> {
   Timer? _timer;
   // bool _isRestTimer = false; // supprimé car non utilisé
   // int? _checkedSeriesIndex; // supprimé car non utilisé
-  Map<int, List<bool>> _seriesChecked = {};
+  final Map<int, List<bool>> _seriesChecked = {};
 
   @override
   void dispose() {

@@ -18,7 +18,6 @@ class MorningWorkoutApp extends StatelessWidget {
         colorScheme: ColorScheme.dark(
           primary: Colors.deepPurple[300]!,
           secondary: Colors.deepPurple[300]!,
-          background: Colors.grey[900]!,
           surface: Colors.grey[850]!,
         ),
         useMaterial3: true,
