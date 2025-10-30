@@ -1,0 +1,32 @@
+name: Deploy Flutter Web to GitHub Pages
+
+on:
+  # Se déclenche à chaque push sur la branche 'main'
+  push:
+    branches: [ "main" ] # Change 'main' si ta branche principale est 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Utilise une machine Linux pour le build
+
+    steps:
+      - uses: actions/checkout@v3 # 1. Récupère ton code
+
+      - uses: subosito/flutter-action@v2 # 2. Installe Flutter
+        with:
+          channel: 'stable'
+
+      - name: Enable web
+        run: flutter config --enable-web # 3. Active le support web sur le robot
+
+      - name: Build Flutter Web
+        run: |
+          flutter build web --release --base-href /morning_workout/
+          # 👆 TRÈS IMPORTANT: Change 'NOM-DE-TON-REPO' ci-dessus
+          # par le nom exact de ton dépôt GitHub (ex: /mon-app-sport/)
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3 # 4. Envoie le build vers GitHub Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web # Le dossier que Flutter a créé
