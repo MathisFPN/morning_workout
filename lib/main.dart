@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:morning_workout/screens/home_page.dart';
+import 'package:morning_workout/screens/main_navigation.dart';
 
 void main() {
   runApp(const MorningWorkoutApp());
@@ -23,7 +23,7 @@ class MorningWorkoutApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Roboto', // Assure-toi d'ajouter la police si tu veux
       ),
-      home: const HomePage(),
+      home: const MainNavigation(),
       debugShowCheckedModeBanner: false,
     );
   }
